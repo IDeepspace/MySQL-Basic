@@ -24,11 +24,11 @@ CREATE TABLE IF NOT EXISTS `Employee`(
 
 # 3.将`employee-data.csv`文件中的数据导入数据表Employee中
 LOAD DATA LOCAL INFILE '/Users/xinchen/Documents/WorkSpace/Java-Training/Mysql-Basic/employee-data.csv'
-INTO TABLE Employee
-FIELDS TERMINATED BY ','
-ENCLOSED BY '"'
-LINES TERMINATED BY '\n'
-IGNORE 1 ROWS;
+into table Employee
+CHARACTER SET utf8
+fields terminated by ','
+optionally enclosed by '"' escaped by '"'
+lines terminated by '\n';
 
 # 4.在数据库employee_db中创建table：`Company`
 CREATE TABLE IF NOT EXISTS `Company`(
@@ -40,11 +40,11 @@ CREATE TABLE IF NOT EXISTS `Company`(
 
 # 5.将`company-data.csv`文件中的数据导入Company数据表中
 LOAD DATA LOCAL INFILE '/Users/xinchen/Documents/WorkSpace/Java-Training/Mysql-Basic/company-data.csv'
-INTO TABLE Company
-FIELDS TERMINATED BY ','
-ENCLOSED BY '"'
-LINES TERMINATED BY '\n'
-IGNORE 1 ROWS;
+into table Company
+CHARACTER SET utf8
+fields terminated by ','
+optionally enclosed by '"' escaped by '"'
+lines terminated by '\n';
 
 # 6.找出Employee表中姓名包含`n`字符并且薪资大于6000的雇员所有个人信息
 SELECT * FROM Employee WHERE name like "%n%" AND `salary` > 6000;
